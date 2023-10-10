@@ -17,4 +17,7 @@ fclean			:	clean
 
 re				: fclean all
 
+logs			:
+	${DOCKER_COMPOSE} logs
+
 .PHONY			:	all clean fclean re
