@@ -1,0 +1,20 @@
+DOCKER_COMPOSE	:=	docker-compose -f srcs/docker-compose.yml
+
+VOLUMES			=	${shell docker volume ls -q}
+
+all				:
+	sudo mkdir -p /home/fsariogl/data/mariadb/ /home/fsariogl/data/wordpress/
+	${DOCKER_COMPOSE} up -d --build
+
+clean			:
+	${DOCKER_COMPOSE} down
+
+fclean			:	clean
+	docker system prune -af --volumes
+	docker volume rm ${VOLUMES}
+	sudo rm -rf /home/fsariogl/data/wordpress
+	sudo rm -rf /home/fsariogl/data/mariadb
+
+re				: fclean all
+
+.PHONY			:	all clean fclean re
