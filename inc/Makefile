@@ -7,7 +7,7 @@ all				:
 	${DOCKER_COMPOSE} up -d --build
 
 clean			:
-	${DOCKER_COMPOSE} down
+	${DOCKER_COMPOSE} down 
 
 fclean			:	clean
 	docker system prune -af --volumes
@@ -18,6 +18,6 @@ fclean			:	clean
 re				: fclean all
 
 logs			:
-	${DOCKER_COMPOSE} logs
+	${DOCKER_COMPOSE} logs --timestamps -f
 
 .PHONY			:	all clean fclean re
