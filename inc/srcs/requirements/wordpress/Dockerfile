@@ -10,7 +10,6 @@ RUN wget https://fr.wordpress.org/wordpress-6.0-fr_FR.tar.gz -P /var/www	\
 	&& mv wp-cli.phar /usr/local/bin/wp
 RUN cd /var/www && tar -xvf wordpress-6.0-fr_FR.tar.gz && rm wordpress-6.0-fr_FR.tar.gz	
 RUN chown -R root:root /var/www/wordpress	
-#COPY ./tools/php.ini /etc/php/7.3/cli/php.ini
 COPY ./tools/wp_init.sh /tmp/wp_init.sh
 WORKDIR /var/www/wordpress
 RUN echo "listen = 0.0.0.0:9000" >> /etc/php/7.3/fpm/pool.d/www.conf

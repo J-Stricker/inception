@@ -10,6 +10,5 @@ then
 	wp plugin update --allow-root --all
 	wp user create --allow-root $WP_USER subscriber_here@student.42lyon.fr --role=subscriber --user_pass=$WP_USER_PWD
 fi
-#chown www-data:www-data /var/www/wordpress/wp-content/uploads --recursive
 mkdir -p /run/php/
 php-fpm7.3 -F
