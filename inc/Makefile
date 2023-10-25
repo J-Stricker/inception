@@ -1,6 +1,4 @@
-DOCKER_COMPOSE	:=	docker-compose -f srcs/docker-compose.yml
-
-VOLUME_LIST	:= ${shell docker volume ls -q}
+DOCKER_COMPOSE		:=	docker-compose -f srcs/docker-compose.yml
 
 VOLUMES			:=	$(shell docker volume ls -q)
 
@@ -17,7 +15,7 @@ fclean			:	clean
 	sudo rm -rf /home/fsariogl/data/wordpress
 	sudo rm -rf /home/fsariogl/data/mariadb
 
-re				: fclean all
+re			:	fclean all
 
 start			:
 	docker-compose -f srcs/docker-compose.yml start
